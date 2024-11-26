@@ -72,8 +72,17 @@ This project includes several tests to ensure the functionality of the animated 
 
 ### Running Tests
 
-To run the tests, use the following command:
+To run the tests in non-headless mode, use the following command:
 
 ```bash
-npx playwright test
+
+npx playwright test --project=chromium
+
+```
+To run the tests in headless mode, use the following command:
+
+```bash
+
+npx playwright test --project=chromiumheadless
+
 ```

@@ -5,15 +5,15 @@ export default defineConfig({
   testDir: './tests',
   fullyParallel: false,
   forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 2 : 2,
+  retries: process.env.CI ? 1 : 0,
+  workers: process.env.CI ? 1 : 1,
   reporter: [['html', { open: 'never' }], ['dot']],
   timeout: 2 * 60 * 1000,
   expect: {
     timeout: 15 * 1000,
   },
   use: {
-    headless: true, // Default mode
+    headless: false, // Default mode
     ignoreHTTPSErrors: true,
     acceptDownloads: true,
     testIdAttribute: 'data-testid',
@@ -29,8 +29,8 @@ export default defineConfig({
     {
       name: 'chromium',
       use: {
-        viewport: null,
-        headless: true, // Non-headless mode
+        viewport: { width: 1600, height: 1000 },
+        headless: false, // Non-headless mode
         launchOptions: {
           args: ['--disable-web-security', '--start-maximized'],
           slowMo: 900,
